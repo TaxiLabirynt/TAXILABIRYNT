@@ -1,6 +1,6 @@
 import flet as ft
 
-mainColor = "#A099FC"
+mainColor = "#4D308F"
 
 def main(page: ft.Page):
     page.title = "Таксі лабіринт"
