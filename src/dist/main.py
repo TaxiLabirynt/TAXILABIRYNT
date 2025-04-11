@@ -1,61 +1,62 @@
 import flet as ft
+import constants as const
 
 
 def main(page: ft.Page):
-    page.title = "Таксі лабіринт"
-    page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
-    page.bgcolor = ft.Colors.WHITE
+    page.title = const.SITE_NAME
+    page.theme = ft.Theme(color_scheme_seed=const.BG_COLOR)
+    page.bgcolor = const.BG_COLOR
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.fonts = {
-        "Tektur": "src/assets/fonts/Tektur-Medium.ttf",
-        "Tektur-Bold": "src/assets/fonts/Tektur-Bold.ttf"
+        "Tektur": "fonts/Tektur-Medium.ttf",
+        "Tektur-Bold": "fonts/Tektur-Bold.ttf"
     }
 
     Header_bar = ft.AppBar(
-        leading=ft.Icon(ft.Icons.LOCAL_TAXI),
+        leading=ft.Icon(const.TAXI_ICON),
         leading_width=40,
-        title=ft.Text("ТАКСІ\nЛАБІРИНТ",
+        title=ft.Text(const.SITE_HEADER_NAME.upper(),
                       text_align="center",
                       font_family="Tektur",
-                      color=ft.Colors.WHITE),
+                      color=const.BG_COLOR),
         center_title=False,
         bgcolor=ft.Colors.BLACK45,
         actions=[
             ft.Container(
                 content=ft.Text(
-                    "23156489",
+                    const.TAXI_NUMBER,
                     size=20,
-                    color=ft.Colors.WHITE,
+                    color=const.BG_COLOR,
                     selectable=True,
                 ),
                 padding=ft.padding.only(left=10, top=5, right=10, bottom=5),
                 margin=ft.margin.only(left=10, top=5, right=20, bottom=5),
                 border_radius=30,
-                border=ft.border.all(3, ft.Colors.WHITE),
+                border=ft.border.all(3, const.BG_COLOR),
             )
         ],
     )
 
     slogan = ft.Text(
-        value="Замовляй вигідно, приїзджай вчасно",
+        value=const.SLOGAN,
         size=50,
-        color=ft.Colors.BLACK,
+        color=const.MAIN_COLOR,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
-        value="Звоніть для замовлення [23156489]\n або завнтажте наш додаток",
+        value=const.CALL_US,
         size=30,
-        color=ft.Colors.BLACK,
+        color=const.MAIN_COLOR,
         text_align=ft.TextAlign.CENTER,
     )
 
     left_image = ft.Image(
-        src="src/assets/images/bgLeft.png",
+        src=const.BG_LEFT_IMAGE,
         fit=ft.ImageFit.FILL,
         width=200,
     )
     right_image = ft.Image(
-        src="src/assets/images/bgRight.png",
+        src=const.BG_RIGHT_IMAGE,
         fit=ft.ImageFit.FILL,
         width=200,
     )
@@ -68,16 +69,16 @@ def main(page: ft.Page):
     app_links = ft.Row(
         controls=[
             ft.TextButton(
-                content=ft.Image("src/assets/images/GooglePlay.png"),
-                on_click=lambda e: page.launch_url("https://apps.apple.com"),
+                content=ft.Image(const.PLAY_STORE),
+                on_click=lambda e: page.launch_url(const.PLAY_STORE_LINK),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
                     overlay_color=ft.colors.TRANSPARENT,
                 ),
             ),
             ft.TextButton(
-                content=ft.Image("AppStore.png"),
-                on_click=lambda e: page.launch_url("https://play.google.com"),
+                content=ft.Image(const.APP_STORE),
+                on_click=lambda e: page.launch_url(const.APP_STORE_LINK),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
                     overlay_color=ft.colors.TRANSPARENT,
@@ -113,4 +114,4 @@ def main(page: ft.Page):
     page.update()
 
 
-ft.app(target=main, view=ft.WEB_BROWSER)
+ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="assets")
