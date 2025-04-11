@@ -3,7 +3,7 @@ import flet as ft
 mainColor = "#4D308F"
 
 def main(page: ft.Page):
-    page.title = "Таксі лабіринт"
+    page.title = "Таксі Лабіринт — зручно, комфортно, завжди вчасно"
     page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
     page.bgcolor = mainColor
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
