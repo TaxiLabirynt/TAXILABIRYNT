@@ -105,7 +105,7 @@ def main(page: ft.Page):
             begin=ft.alignment.top_center,
             end=ft.alignment.bottom_center,
             colors=[Header_bar.bgcolor, ft.Colors.WHITE],
-        ), offset=ft.transform.Offset(0, 0.5),
+        ), offset=ft.transform.Offset(0, -0.02),
     )
 
     stack = ft.Stack([images_row, main_container], expand=True)
