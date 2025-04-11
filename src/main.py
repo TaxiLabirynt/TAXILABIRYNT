@@ -7,8 +7,8 @@ def main(page: ft.Page):
     page.bgcolor = ft.Colors.WHITE
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.fonts = {
-        "Tektur": "assets/fonts/Tektur-Medium.ttf",
-        "Tektur-Bold": "assets/fonts/Tektur-Bold.ttf"
+        "Tektur": "fonts/Tektur-Medium.ttf",
+        "Tektur-Bold": "fonts/Tektur-Bold.ttf"
     }
 
     Header_bar = ft.AppBar(
@@ -50,12 +50,12 @@ def main(page: ft.Page):
     )
 
     left_image = ft.Image(
-        src="assets/images/bgLeft.png",
+        src="images/bgLeft.png",
         fit=ft.ImageFit.FILL,
         width=200,
     )
     right_image = ft.Image(
-        src="assets/images/bgRight.png",
+        src="images/bgRight.png",
         fit=ft.ImageFit.FILL,
         width=200,
     )
@@ -68,7 +68,7 @@ def main(page: ft.Page):
     app_links = ft.Row(
         controls=[
             ft.TextButton(
-                content=ft.Image("assets/images/GooglePlay.png"),
+                content=ft.Image("images/GooglePlay.png"),
                 on_click=lambda e: page.launch_url("https://apps.apple.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
@@ -76,7 +76,7 @@ def main(page: ft.Page):
                 ),
             ),
             ft.TextButton(
-                content=ft.Image("assets/images/AppStore.png"),
+                content=ft.Image("images/AppStore.png"),
                 on_click=lambda e: page.launch_url("https://play.google.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
@@ -113,4 +113,4 @@ def main(page: ft.Page):
     page.update()
 
 
-ft.app(target=main, view=ft.WEB_BROWSER)
+ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="assets")
