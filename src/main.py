@@ -101,8 +101,6 @@ def main(page: ft.Page):
         ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
         gradient=ft.LinearGradient(
-            begin=ft.alignment.top_center,
-            end=ft.alignment.bottom_center,
             colors=[Header_bar.bgcolor, ft.Colors.WHITE],
         )
     )
