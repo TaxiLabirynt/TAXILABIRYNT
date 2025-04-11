@@ -58,6 +58,15 @@ def main(page: ft.Page):
         alignment=ft.MainAxisAlignment.CENTER,
         spacing=20,
     )
+    app_links_col = ft.Column(
+        [ft.Text("Не зволікай та замовляй Таксі Лабіринт!", size=15, color=ft.Colors.BLACK, text_align=ft.TextAlign.CENTER, weight=ft.FontWeight.BOLD), app_links],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        )
+    
+    app_links_container = ft.Container(
+        content=app_links_col,
+        padding=ft.padding.only(bottom=20)
+    )
     page.appbar = Header_bar
 
     slogan_content = ft.Column(
@@ -71,21 +80,22 @@ def main(page: ft.Page):
         padding=20,
         border_radius=10,
         alignment=ft.alignment.center,
+        expand=True
     )
 
     content_column = ft.Column(
         [
             slogan_container,
-            app_links,
+            app_links_container,
         ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        alignment=ft.MainAxisAlignment.CENTER,
-        spacing=20,
+        alignment=ft.MainAxisAlignment.END,
+        spacing=0,
     )
     
     content_column_container = ft.Container(
         content=content_column,
-        margin=ft.margin.only(top=-150) # Змінено -100 на -150
+        margin=ft.margin.only(top=0)
     )
 
     main_container = ft.Container(
