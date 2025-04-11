@@ -39,18 +39,18 @@ def main(page: ft.Page):
 
     slogan = ft.Text(
         value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
-        size=45,
+        size=30,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
         value="Звоніть для замовлення [23156489]\n або завантажте наш додаток",
-        size=30,
+        size=25,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
 
-    BGimage = ft.Image("images/bgCar.jpg", width=page.width, height=page.height)
+    BGimage = ft.Image("images/bgCar.jpg")
 
     app_links = ft.Row(
         controls=[
