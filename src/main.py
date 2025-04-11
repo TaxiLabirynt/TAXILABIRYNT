@@ -99,8 +99,13 @@ def main(page: ft.Page):
             ),
             app_links,
         ],
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-    ), )
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
+        gradient=ft.LinearGradient(
+            begin=ft.alignment.top,
+            end=ft.alignment.bottom,
+            colors=[Header_bar.bgcolor, ft.Colors.WHITE],
+        )
+    )
 
     stack = ft.Stack([images_row, main_container], expand=True)
 
