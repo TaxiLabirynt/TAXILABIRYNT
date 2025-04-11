@@ -19,7 +19,7 @@ def main(page: ft.Page):
                       font_family="Tektur",
                       color=ft.Colors.WHITE),
         center_title=False,
-        bgcolor=ft.Colors.YELLOW,
+        bgcolor=ft.Colors.YELLOW_300,
         actions=[
             ft.Container(
                 content=ft.Text(
