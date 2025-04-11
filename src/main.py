@@ -37,8 +37,8 @@ def main(page: ft.Page):
     )
 
     slogan = ft.Text(
-        value="Замовляй вигідно, приїзджай вчасно",
-        size=50,
+        value="Вчасно та комфортно, служба таксі яка радує. Лабіринт завжди поруч.",
+        size=45,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
@@ -90,6 +90,7 @@ def main(page: ft.Page):
     page.appbar = Header_bar
 
     main_container = ft.Container(content=ft.Column(
+        height=page.height,
         controls=[
             ft.Container(
                 content=ft.Column(
@@ -101,8 +102,10 @@ def main(page: ft.Page):
         ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
         gradient=ft.LinearGradient(
+            begin=ft.alignment.top_center,
+            end=ft.alignment.bottom_center,
             colors=[Header_bar.bgcolor, ft.Colors.WHITE],
-        )
+        ), offset=ft.transform.Offset(0, 0.001),
     )
 
     stack = ft.Stack([images_row, main_container], expand=True)
