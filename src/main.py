@@ -5,8 +5,8 @@ mainColor = "#4D308F"
 def main(page: ft.Page):
     page.title = "Таксі Лабіринт — зручно, комфортно, завжди вчасно"
     page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
-    page.bgcolor = mainColor
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.bgcolor = ft.Colors.WHITE
+    page.padding = 0
     page.fonts = {
         "Tektur": "fonts/Tektur-Medium.ttf",
         "Tektur-Bold": "fonts/Tektur-Bold.ttf"
@@ -45,16 +45,12 @@ def main(page: ft.Page):
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
-        value="Звоніть для замовлення [23156489]\n або завантажте наш додаток",
+        value="Замовляйте за номером [23156489]\n або завантажте наш додаток",
         size=25,
         weight=ft.FontWeight.BOLD,
         color=ft.Colors.WHITE,
         text_align=ft.TextAlign.CENTER,
     )
-
-    BGimage = ft.Stack([ft.Container(width=page.width, height=page.height, gradient=ft.RadialGradient(colors=([ft.colors.WHITE, mainColor]), radius=0.7), offset=ft.Offset(0, 0)),
-                        ft.Image("images/BGLayer1.png", fit=ft.ImageFit.SCALE_DOWN, width=page.width, height=page.height),
-                        ft.Container(width=page.width, height=page.height, blur=ft.Blur(sigma_x=5, sigma_y=1))])
 
     app_links = ft.Row(
         controls=[
@@ -91,24 +87,42 @@ def main(page: ft.Page):
         padding=20,
         border_radius=10,
         alignment=ft.alignment.center,
-        expand=True
     )
 
-    main_container = ft.Container(content=ft.Column(
-        controls=[
+    content_column = ft.Column(
+        [
             slogan_container,
             app_links,
         ],
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-        expand=True,
-        height=page.height,
-        width=page.width,
-        #blur=ft.Blur(sigma_x=10, sigma_y=10),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        alignment=ft.MainAxisAlignment.CENTER,
+        spacing=20
     )
 
-    stack = ft.Stack([BGimage, main_container], expand=True)
+    main_container = ft.Container(
+        content=content_column,
+        alignment=ft.alignment.center,
+        #expand=True, # Видалено expand=True
+        width=page.width, # Додано width
+        height=page.height*0.8 # Додано height
+    )
 
-    page.add(stack)
+    background_image = ft.Image(
+        src="images/BGLayer1.png",
+        fit=ft.ImageFit.COVER,
+        expand=True,
+    )
+
+    main_container_with_bg = ft.Stack(
+        [
+            background_image,
+            main_container
+        ],
+        expand=True,
+        alignment=ft.alignment.center
+    )
+
+    page.add(main_container_with_bg)
 
     page.update()
 
