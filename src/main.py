@@ -113,4 +113,4 @@ def main(page: ft.Page):
     page.update()
 
 
-ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="assets")
+ft.app(target=main, view=ft.WEB_BROWSER)
