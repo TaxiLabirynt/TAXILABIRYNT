@@ -1,6 +1,6 @@
 import flet as ft
 
-mainColor = "#0bb817"
+mainColor = "#FEBE00"
 
 def main(page: ft.Page):
     page.title = "Таксі лабіринт"
@@ -41,14 +41,14 @@ def main(page: ft.Page):
         value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
         size=30,
         weight=ft.FontWeight.BOLD,
-        color=ft.Colors.WHITE,
+        color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
         value="Звоніть для замовлення [23156489]\n або завантажте наш додаток",
         size=25,
         weight=ft.FontWeight.BOLD,
-        color=ft.Colors.WHITE,
+        color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
 
