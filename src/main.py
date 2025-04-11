@@ -4,8 +4,9 @@ import flet as ft
 def main(page: ft.Page):
     page.title = "Таксі лабіринт"
     page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
-    page.bgcolor = ft.Colors.WHITE
+    page.bgcolor = "#0bb817"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.scroll = ft.ScrollMode.ADAPTIVE
     page.fonts = {
         "Tektur": "fonts/Tektur-Medium.ttf",
         "Tektur-Bold": "fonts/Tektur-Bold.ttf"
@@ -49,21 +50,7 @@ def main(page: ft.Page):
         text_align=ft.TextAlign.CENTER,
     )
 
-    left_image = ft.Image(
-        src="images/bgLeft.png",
-        fit=ft.ImageFit.FILL,
-        width=200,
-    )
-    right_image = ft.Image(
-        src="images/bgRight.png",
-        fit=ft.ImageFit.FILL,
-        width=200,
-    )
-
-    images_row = ft.Row(
-        controls=[left_image, right_image],
-        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-    )
+    BGimage = ft.Image("images/bgCar.jpg", width=page.width, height=page.height)
 
     app_links = ft.Row(
         controls=[
@@ -89,32 +76,43 @@ def main(page: ft.Page):
     )
     page.appbar = Header_bar
 
+    slogan_content = ft.Column(
+        [slogan, call_us],
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        spacing=10,
+    )
+
+    slogan_container = ft.Container(
+        content=slogan_content,
+        padding=20,
+        border_radius=10,
+        alignment=ft.alignment.center
+    )
+
     main_container = ft.Container(content=ft.Column(
-        height=page.height,
         controls=[
-            ft.Container(
-                content=ft.Column(
-                    [slogan, call_us],
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-                alignment=ft.alignment.top_center,
-            ),
+            slogan_container,
             app_links,
         ],
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,), 
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER),
+        expand=True,
+        height=page.height,
+        width=page.width,
+        blur=ft.Blur(sigma_x=10, sigma_y=10),
+    )
+
+    gradient = ft.Container(
+        width=page.width,
+        height=page.height,
         gradient=ft.LinearGradient(
             begin=ft.alignment.top_center,
             end=ft.alignment.bottom_center,
-            colors=[Header_bar.bgcolor, ft.Colors.WHITE],
-        ), offset=ft.transform.Offset(0, -0.02),
+            colors=[Header_bar.bgcolor, "#AAFEB0"],
+        )
     )
+    stack = ft.Stack([gradient, BGimage, main_container], expand=True)
 
-    stack = ft.Stack([images_row, main_container], expand=True)
-
-    page.add(ft.Column(
-        [stack],
-        scroll=ft.ScrollMode.AUTO,
-        expand=True,
-    ))
+    page.add(stack)
 
     page.update()
 
