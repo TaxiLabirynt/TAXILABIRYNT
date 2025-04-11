@@ -19,7 +19,7 @@ def main(page: ft.Page):
                       font_family="Tektur",
                       color=ft.Colors.WHITE),
         center_title=False,
-        bgcolor=ft.Colors.BLACK45,
+        bgcolor=ft.Colors.YELLOW_300,
         actions=[
             ft.Container(
                 content=ft.Text(
@@ -43,7 +43,7 @@ def main(page: ft.Page):
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
-        value="Звоніть для замовлення [23156489]\n або завнтажте наш додаток",
+        value="Звоніть для замовлення [23156489]\n або завантажте наш додаток",
         size=30,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
