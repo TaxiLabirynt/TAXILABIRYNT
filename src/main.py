@@ -17,22 +17,22 @@ def main(page: ft.Page):
                       text_align="center",
                       font_family="Tektur",
                       color=ft.Colors.BLACK),
-        center_title=False,
+        center_title=True,
         bgcolor="#F1C104",
     )
 
     slogan = ft.Text(
         value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
-        size=30,
+        size=20,
         weight=ft.FontWeight.BOLD,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
         value="Замовляйте за номером [23156489]\n або завантажте наш додаток",
-        size=25,
+        size=15,
         weight=ft.FontWeight.BOLD,
-        color=ft.Colors.WHITE,
+        color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
 
@@ -40,7 +40,7 @@ def main(page: ft.Page):
         controls=[
             ft.TextButton(
                 content=ft.Image("images/GooglePlay.png"),
-                on_click=lambda e: page.launch_url("https://apps.apple.com"),
+                on_click=lambda e: page.launch_url("https://play.google.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
                     overlay_color=ft.colors.TRANSPARENT,
@@ -48,7 +48,7 @@ def main(page: ft.Page):
             ),
             ft.TextButton(
                 content=ft.Image("images/AppStore.png"),
-                on_click=lambda e: page.launch_url("https://play.google.com"),
+                on_click=lambda e: page.launch_url("https://apps.apple.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
                     overlay_color=ft.colors.TRANSPARENT,
@@ -85,7 +85,7 @@ def main(page: ft.Page):
     
     content_column_container = ft.Container(
         content=content_column,
-        margin=ft.margin.only(top=-100)
+        margin=ft.margin.only(top=-150) # Змінено -100 на -150
     )
 
     main_container = ft.Container(
