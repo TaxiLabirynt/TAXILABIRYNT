@@ -37,7 +37,7 @@ def main(page: ft.Page):
     )
 
     slogan = ft.Text(
-        value="Вчасно та комфортно, служба таксі яка радує. Лабіринт завжди поруч.",
+        value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
         size=45,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
@@ -105,7 +105,7 @@ def main(page: ft.Page):
             begin=ft.alignment.top_center,
             end=ft.alignment.bottom_center,
             colors=[Header_bar.bgcolor, ft.Colors.WHITE],
-        ), offset=ft.transform.Offset(0, 0.001),
+        ), offset=ft.transform.Offset(0, 0.5),
     )
 
     stack = ft.Stack([images_row, main_container], expand=True)
