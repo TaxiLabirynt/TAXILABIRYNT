@@ -1,12 +1,12 @@
 import flet as ft
 
+mainColor = "#0bb817"
 
 def main(page: ft.Page):
     page.title = "Таксі лабіринт"
     page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
-    page.bgcolor = "#0bb817"
+    page.bgcolor = mainColor
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.scroll = ft.ScrollMode.ADAPTIVE
     page.fonts = {
         "Tektur": "fonts/Tektur-Medium.ttf",
         "Tektur-Bold": "fonts/Tektur-Bold.ttf"
@@ -20,7 +20,7 @@ def main(page: ft.Page):
                       font_family="Tektur",
                       color=ft.Colors.WHITE),
         center_title=False,
-        bgcolor="#0bb817",
+        bgcolor=ft.Colors.BLACK,
         actions=[
             ft.Container(
                 content=ft.Text(
@@ -40,17 +40,21 @@ def main(page: ft.Page):
     slogan = ft.Text(
         value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
         size=30,
+        weight=ft.FontWeight.BOLD,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
         value="Звоніть для замовлення [23156489]\n або завантажте наш додаток",
         size=25,
+        weight=ft.FontWeight.BOLD,
         color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
 
-    BGimage = ft.Image("images/bgCar.jpg")
+    BGimage = ft.Stack([ft.Container(width=page.width, height=page.height, gradient=ft.RadialGradient(colors=([ft.colors.WHITE, mainColor]), radius=0.7), offset=ft.Offset(0, 0)),
+                        ft.Image("images/BGLayer1.png", fit=ft.ImageFit.SCALE_DOWN, width=page.width, height=page.height),
+                        ft.Container(width=page.width, height=page.height, blur=ft.Blur(sigma_x=5, sigma_y=1))])
 
     app_links = ft.Row(
         controls=[
@@ -86,7 +90,8 @@ def main(page: ft.Page):
         content=slogan_content,
         padding=20,
         border_radius=10,
-        alignment=ft.alignment.center
+        alignment=ft.alignment.center,
+        expand=True
     )
 
     main_container = ft.Container(content=ft.Column(
@@ -98,19 +103,10 @@ def main(page: ft.Page):
         expand=True,
         height=page.height,
         width=page.width,
-        blur=ft.Blur(sigma_x=10, sigma_y=10),
+        #blur=ft.Blur(sigma_x=10, sigma_y=10),
     )
 
-    gradient = ft.Container(
-        width=page.width,
-        height=page.height,
-        gradient=ft.LinearGradient(
-            begin=ft.alignment.top_center,
-            end=ft.alignment.bottom_center,
-            colors=[Header_bar.bgcolor, "#AAFEB0"],
-        )
-    )
-    stack = ft.Stack([gradient, BGimage, main_container], expand=True)
+    stack = ft.Stack([BGimage, main_container], expand=True)
 
     page.add(stack)
 
