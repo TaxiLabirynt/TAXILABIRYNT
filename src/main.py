@@ -7,8 +7,8 @@ def main(page: ft.Page):
     page.bgcolor = ft.Colors.WHITE
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.fonts = {
-        "Tektur": "src/assets/fonts/Tektur-Medium.ttf",
-        "Tektur-Bold": "src/assets/fonts/Tektur-Bold.ttf"
+        "Tektur": "fonts/Tektur-Medium.ttf",
+        "Tektur-Bold": "fonts/Tektur-Bold.ttf"
     }
 
     Header_bar = ft.AppBar(
@@ -50,12 +50,12 @@ def main(page: ft.Page):
     )
 
     left_image = ft.Image(
-        src="src/assets/images/bgLeft.png",
+        src="images/bgLeft.png",
         fit=ft.ImageFit.FILL,
         width=200,
     )
     right_image = ft.Image(
-        src="src/assets/images/bgRight.png",
+        src="images/bgRight.png",
         fit=ft.ImageFit.FILL,
         width=200,
     )
@@ -68,7 +68,7 @@ def main(page: ft.Page):
     app_links = ft.Row(
         controls=[
             ft.TextButton(
-                content=ft.Image("src/assets/images/GooglePlay.png"),
+                content=ft.Image("images/GooglePlay.png"),
                 on_click=lambda e: page.launch_url("https://apps.apple.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
@@ -76,7 +76,7 @@ def main(page: ft.Page):
                 ),
             ),
             ft.TextButton(
-                content=ft.Image("AppStore.png"),
+                content=ft.Image("images/AppStore.png"),
                 on_click=lambda e: page.launch_url("https://play.google.com"),
                 style=ft.ButtonStyle(
                     shape=ft.RoundedRectangleBorder(radius=5),
