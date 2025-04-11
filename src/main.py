@@ -13,35 +13,19 @@ def main(page: ft.Page):
     }
 
     Header_bar = ft.AppBar(
-        leading=ft.Icon(ft.Icons.LOCAL_TAXI),
-        leading_width=40,
-        title=ft.Text("ТАКСІ\nЛАБІРИНТ",
+        title=ft.Text("ТАКСІ ЛАБІРИНТ 542",
                       text_align="center",
                       font_family="Tektur",
-                      color=ft.Colors.WHITE),
+                      color=ft.Colors.BLACK),
         center_title=False,
-        bgcolor=ft.Colors.BLACK,
-        actions=[
-            ft.Container(
-                content=ft.Text(
-                    "23156489",
-                    size=20,
-                    color=ft.Colors.WHITE,
-                    selectable=True,
-                ),
-                padding=ft.padding.only(left=10, top=5, right=10, bottom=5),
-                margin=ft.margin.only(left=10, top=5, right=20, bottom=5),
-                border_radius=30,
-                border=ft.border.all(3, ft.Colors.WHITE),
-            )
-        ],
+        bgcolor="#F1C104",
     )
 
     slogan = ft.Text(
         value="Зручно, комфортно, завжди вчасно.\nТаксі Лабіринт - завжди поруч",
         size=30,
         weight=ft.FontWeight.BOLD,
-        color=ft.Colors.WHITE,
+        color=ft.Colors.BLACK,
         text_align=ft.TextAlign.CENTER,
     )
     call_us = ft.Text(
@@ -96,15 +80,19 @@ def main(page: ft.Page):
         ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         alignment=ft.MainAxisAlignment.CENTER,
-        spacing=20
+        spacing=20,
+    )
+    
+    content_column_container = ft.Container(
+        content=content_column,
+        margin=ft.margin.only(top=-100)
     )
 
     main_container = ft.Container(
-        content=content_column,
+        content=content_column_container,
         alignment=ft.alignment.center,
-        #expand=True, # Видалено expand=True
-        width=page.width, # Додано width
-        height=page.height*0.8 # Додано height
+        width=page.width,
+        height=page.height*0.8
     )
 
     background_image = ft.Image(
