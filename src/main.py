@@ -7,6 +7,21 @@ def main(page: ft.Page):
     page.theme = ft.Theme(color_scheme_seed=ft.Colors.WHITE)
     page.bgcolor = ft.Colors.WHITE
     page.padding = 0
+    page.meta = {
+        "description": "Зручно, комфортно, завжди вчасно. Таксі Лабіринт - завжди поруч.",
+        "keywords": "таксі, taxi, замовити таксі, перевезення, Київ таксі, Таксі Лабіринт",
+        "author": "Таксі Лабіринт",
+        "og:title": "Таксі Лабіринт",
+        "og:description": "Зручно, комфортно, завжди вчасно. Таксі Лабіринт - завжди поруч.",
+        "og:image": "https://taxilabirynt.vercel.app/icon.png",
+        "og:url": "https://taxilabirynt.vercel.app/",
+        "og:type": "website",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Таксі Лабіринт",
+        "twitter:description": "Зручно, комфортно, завжди вчасно. Таксі Лабіринт - завжди поруч.",
+        "twitter:image": "https://taxilabirynt.vercel.app/icon.png"
+    }
+
     page.fonts = {
         "Tektur": "fonts/Tektur-Medium.ttf",
         "Tektur-Bold": "fonts/Tektur-Bold.ttf"
