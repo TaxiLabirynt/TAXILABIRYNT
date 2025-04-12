@@ -8,6 +8,7 @@ def main(page: ft.Page):
     page.bgcolor = ft.Colors.WHITE
     page.padding = 0
     page.meta = {
+        "manifest": "/manifest.json",
         "description": "Зручно, комфортно, завжди вчасно. Таксі Лабіринт - завжди поруч.",
         "keywords": "таксі, taxi, замовити таксі, перевезення, Київ таксі, Таксі Лабіринт",
         "author": "Таксі Лабіринт",
