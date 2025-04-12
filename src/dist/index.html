@@ -63,7 +63,7 @@
       font-size: 16px;
       margin-bottom: 2rem;
       position: absolute;
-      top: 25%; /* Піднято блок контакту */
+      top: 25%;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -83,6 +83,24 @@
       padding: 1rem;
       text-align: center;
       background-color: rgba(255,255,255,0.8);
+    }
+
+    /* Медіа-запити для мобільних пристроїв */
+    @media (max-width: 768px) {
+      .slogan {
+        position: static;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+      .contact {
+        position: static;
+        top: 0;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 20px;
+      }
     }
   </style>
 </head>
